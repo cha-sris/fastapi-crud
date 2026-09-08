@@ -60,8 +60,15 @@ source .venv/bin/activate
 uv sync
 ```
 
+3. Get your Imagekit API keys:
+[imagekit.io](https://imagekit.io/)
 
-3. Create a `.env` file in the root directory and configure your environment variables:
+4. Create your secret JWT token:
+```bash
+python -c "import secrets; print(secrets.token_hex(32))"
+```
+
+5. Create a `.env` file in the root directory and configure your environment variables:
 ```env
 IMAGEKIT_PRIVATE_KEY=your_imagekit_private_key
 IMAGEKIT_PUBLIC_Key=your_imagekit_public_key
@@ -70,10 +77,6 @@ IMAGEKIT_URL=your_imagekit_url_endpoint
 JWT_SECRET_KEY=your_jwt_secret_key
 ```
 
-4. Create your secret JWT token:
-```bash
-python -c "import secrets; print(secrets.token_hex(32))"
-```
 
 
 ## Running the Application
@@ -86,7 +89,8 @@ Run the backend server using `uv` and Uvicorn:
 uv run uvicorn main:app --reload
 ```
 
-The API will be available at `[http://127.0.0.1:8000](http://127.0.0.1:8000)`. You can access the interactive Swagger documentation at `[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)`.
+- API Endpoint: [localhost:8000](http://127.0.0.1:8000)
+- Interactive Documentation (Swagger UI): [localhost:8000/docs](http://127.0.0.1:8000/docs)
 
 ### 2. Start the Streamlit Frontend
 
@@ -96,4 +100,4 @@ In a separate terminal window (with your virtual environment active), launch the
 uv run streamlit run app/frontend.py
 ```
 
-The frontend dashboard will open in your default browser at `
+The frontend dashboard will open in your default browser at [localhost:8501](http://127.0.0.1:8501)
